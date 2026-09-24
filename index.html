@@ -187,7 +187,7 @@ summary{font-weight:700;color:var(--navy);cursor:pointer}
     <hr>
     <p><strong>Contact:</strong><br>dlwtscholar@gmail.com<br>+91 8368043184</p>
    </div>
-   <form action="https://script.googleusercontent.com/macros/echo?user_content_key=AUkAhnT6rrLCHnUDcioNE4i_1tPNPyuSBlQJ0SNDjTVDs2dwEYf-v_iuhEhMoiYkX6Xaar85uLza1z6CX0fi_uOx9gIbZNDcNgvr3nMbPm8hI1cv5uMlbzUvK0cawW1JCxq6SVuMdS0c36EViKSe494hVrkwVWP-DmFsZorlEmlkaievb3K_Ajxczs4nBl-faTqonYJhDSFs-GZSpyIu2lzDAOmFMpfdidnjzodsJhZMLVH4pJr1KH9klr0UwAs25M-ar6AvSa8V8xlS5mF8mkyCN1p40pf1Cw&amp;lib=MMof5EeEBVVsCU5AenjB5x1peVtEwq2yY" method="POST">
+   <form id="membershipForm" action="https://script.google.com/macros/s/AKfycbxzIQBOScNkGp8sTghEt1xQ3MuOPWNug7TPoPjzpbIOlWdWJSo2F5sHXTE10Xpk7z7b/exec" method="POST" target="submissionFrame" onsubmit="showSubmitting()">
     <div class="grid2">
      <div class="field"><label>Full Name *</label><input required name="fullName" placeholder="Your name"></div>
      <div class="field"><label>Email Address *</label><input required name="email" type="email" placeholder="name@example.com"></div>
@@ -200,9 +200,18 @@ summary{font-weight:700;color:var(--navy);cursor:pointer}
      <div class="field full"><label>Message</label><textarea name="message" placeholder="Tell us briefly about your academic/professional interests"></textarea></div>
      <div class="field full"><label><input required type="checkbox" name="consent" value="I agree to submit these details for membership processing"> I agree to submit these details for membership processing.</label></div>
     </div>
-    <button class="btn btn-primary" type="submit">Submit Membership Application</button>
+    <button id="submitBtn" class="btn btn-primary" type="submit">Submit Membership Application</button>
+    <div id="submitStatus" style="display:none;margin-top:16px;padding:14px 16px;border-radius:10px;background:#eaf7f5;color:#073b63;font-weight:700;">Submitting your membership application…</div>
     <p style="margin-top:12px;font-size:13px;opacity:.8;">After payment, please email your transaction screenshot to <strong>dlwtscholar@gmail.com</strong> for verification.</p>
    </form>
+   <iframe name="submissionFrame" id="submissionFrame" title="Membership submission" style="display:none;width:0;height:0;border:0;"></iframe>
+   <script>
+   function showSubmitting(){
+     document.getElementById('submitBtn').disabled = true;
+     document.getElementById('submitBtn').textContent = 'Submitting…';
+     document.getElementById('submitStatus').style.display = 'block';
+   }
+   </script>
   </div>
  </div>
 </section>
