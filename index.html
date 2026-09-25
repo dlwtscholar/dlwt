@@ -73,6 +73,17 @@ summary{font-weight:700;color:var(--navy);cursor:pointer}
 .footer-grid{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:35px}
 .footer h3{margin-top:0} .footer p,.footer a{color:#c8dbe5;font-size:14px}
 .copyright{border-top:1px solid rgba(255,255,255,.15);margin-top:30px;padding-top:18px;font-size:12px;color:#aac2ce}
+
+/* Extended DLWT sections */
+.feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.feature-card{background:#fff;border:1px solid #e4edf1;border-radius:18px;padding:25px;box-shadow:0 7px 24px rgba(15,65,85,.06)}
+.feature-card h3{color:var(--navy);margin:7px 0 9px}.feature-card p{color:#647782;font-size:15px;margin:0 0 12px}.tag{display:inline-block;padding:5px 10px;border-radius:20px;background:#e9f5f4;color:var(--teal);font-size:12px;font-weight:700;margin-bottom:10px}
+.verify-box{max-width:760px;margin:auto;background:#fff;border:1px solid #e2ebef;border-radius:20px;padding:28px;box-shadow:var(--shadow)}
+.verify-result{display:none;margin-top:18px;padding:18px;border-radius:14px;background:#eef8f5;border:1px solid #ccebe3}.verify-result.error{background:#fff5f5;border-color:#f0d0d0}.verify-result h3{margin:0 0 7px;color:var(--navy)}
+.verify-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:15px}.small-note{font-size:13px;color:#71808a;margin-top:8px}
+.event-date{font-size:13px;font-weight:800;color:var(--teal);letter-spacing:.4px}.status{font-size:12px;font-weight:700;padding:5px 9px;border-radius:20px;background:#eef6fb;color:var(--navy);display:inline-block}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}.contact-card{background:#fff;border:1px solid #e4edf1;border-radius:18px;padding:26px}.contact-card h3{color:var(--navy);margin-top:0}.contact-card p{color:#647782}
+@media(max-width:850px){.feature-grid,.contact-grid{grid-template-columns:1fr}.navlinks{display:none}}
 @media(max-width:850px){
  .navlinks{display:none} .hero-grid,.form-wrap,.benefits{grid-template-columns:1fr}
  h1{font-size:38px} .cards,.pricecards{grid-template-columns:1fr} .steps{grid-template-columns:1fr 1fr}
@@ -91,7 +102,7 @@ summary{font-weight:700;color:var(--navy);cursor:pointer}
 <nav class="nav">
   <div class="brand">DLWT Society of Scholars<span>A Professional Society for Education, Research & Innovation</span></div>
   <div class="navlinks">
-    <a href="#about">About</a><a href="#benefits">Benefits</a><a href="#membership">Membership</a><a href="#contribute">Contribute</a><a href="#join">Join Us</a>
+    <a href="#about">About</a><a href="#membership">Membership</a><a href="#awards">Awards</a><a href="#opportunities">Opportunities</a><a href="#publications">Publications</a><a href="#verify">Verify</a><a href="#events">Events</a><a href="#contact">Contact</a>
     <a class="btn btn-primary" href="#join">Apply Now</a>
   </div>
 </nav>
@@ -201,21 +212,147 @@ summary{font-weight:700;color:var(--navy);cursor:pointer}
      <div class="field full"><label><input required type="checkbox" name="consent" value="I agree to submit these details for membership processing"> I agree to submit these details for membership processing.</label></div>
     </div>
     <button id="submitBtn" class="btn btn-primary" type="submit">Submit Membership Application</button>
-    <div id="submitStatus" style="display:none;margin-top:16px;padding:14px 16px;border-radius:10px;background:#eaf7f5;color:#073b63;font-weight:700;">Submitting your membership application…</div>
+    <div id="submitStatus" style="display:none;margin-top:16px;padding:14px 16px;border-radius:10px;background:#eaf7f5;color:#073b63;font-weight:700;">Your application is being submitted. Please wait…</div>
     <p style="margin-top:12px;font-size:13px;opacity:.8;">After payment, please email your transaction screenshot to <strong>dlwtscholar@gmail.com</strong> for verification.</p>
    </form>
-   <iframe name="submissionFrame" id="submissionFrame" title="Membership submission" style="display:none;width:0;height:0;border:0;"></iframe>
+   <div id="submissionResult" style="display:none;margin-top:20px;">
+    <div class="eyebrow">Application Response</div>
+    <p style="margin:8px 0 12px;font-weight:700;color:#073b63;">Your application has been sent to the DLWT Membership System. The application response appears below.</p>
+    <iframe name="submissionFrame" id="submissionFrame" title="Membership application response" style="display:block;width:100%;height:260px;border:1px solid #d8e3ea;border-radius:14px;background:#fff;"></iframe>
+   </div>
    <script>
    function showSubmitting(){
      document.getElementById('submitBtn').disabled = true;
      document.getElementById('submitBtn').textContent = 'Submitting…';
      document.getElementById('submitStatus').style.display = 'block';
+     document.getElementById('submissionResult').style.display = 'block';
    }
    </script>
   </div>
  </div>
 </section>
 
+
+
+
+<section id="awards" class="light">
+ <div class="container">
+  <div class="section-head"><div class="eyebrow">Recognition & Excellence</div><h2>🏆 Awards</h2><p>DLWT may recognize meaningful contributions to education, research, innovation, academic service and professional development through transparent award categories and nomination processes.</p></div>
+  <div class="feature-grid">
+   <div class="feature-card"><span class="tag">Academic Excellence</span><h3>Scholar Excellence Award</h3><p>For outstanding scholarly contribution, research engagement, academic writing or knowledge dissemination.</p><a class="btn btn-outline" href="#contact">Nomination Enquiry</a></div>
+   <div class="feature-card"><span class="tag">Research</span><h3>Research Contribution Award</h3><p>Recognition for significant research activity, evidence-based practice, innovation or interdisciplinary contribution.</p><a class="btn btn-outline" href="#contact">Nomination Enquiry</a></div>
+   <div class="feature-card"><span class="tag">Professional Service</span><h3>Academic Service Award</h3><p>For contributions to teaching, mentoring, editorial work, academic leadership, outreach or professional service.</p><a class="btn btn-outline" href="#contact">Nomination Enquiry</a></div>
+  </div>
+ </div>
+</section>
+
+<section id="fellowships">
+ <div class="container">
+  <div class="section-head"><div class="eyebrow">Academic Development</div><h2>🎓 Fellowships</h2><p>Fellowship opportunities can support scholars, educators and professionals through recognition, academic engagement, mentoring and knowledge-sharing activities.</p></div>
+  <div class="feature-grid">
+   <div class="feature-card"><span class="tag">Open to Scholars</span><h3>DLWT Scholar Fellowship</h3><p>Designed for researchers and scholars seeking structured academic networking and recognition.</p><a class="btn btn-green" href="#contact">Express Interest</a></div>
+   <div class="feature-card"><span class="tag">Early Career</span><h3>Young Researcher Fellowship</h3><p>For emerging researchers, postgraduate scholars and early-career academics participating in research initiatives.</p><a class="btn btn-green" href="#contact">Express Interest</a></div>
+   <div class="feature-card"><span class="tag">Professional</span><h3>Academic Leadership Fellowship</h3><p>For educators, editors and professionals contributing to academic leadership and knowledge development.</p><a class="btn btn-green" href="#contact">Express Interest</a></div>
+  </div>
+ </div>
+</section>
+
+<section id="publications" class="light">
+ <div class="container">
+  <div class="section-head"><div class="eyebrow">Knowledge & Publishing</div><h2>📚 Publications</h2><p>Discover scholarly publishing, edited-book opportunities, journal initiatives and academic resources associated with the DLWT community.</p></div>
+  <div class="feature-grid">
+   <div class="feature-card"><span class="tag">Books</span><h3>Edited Books & Chapters</h3><p>Opportunities for scholars and professionals to contribute chapters to subject-focused academic books.</p><a class="btn btn-outline" href="#contact">Publication Enquiry</a></div>
+   <div class="feature-card"><span class="tag">Journals</span><h3>Research Journal Opportunities</h3><p>Explore calls for papers and research communication opportunities across relevant academic disciplines.</p><a class="btn btn-outline" href="#call-for-papers">View Calls</a></div>
+   <div class="feature-card"><span class="tag">Resources</span><h3>Academic Resources</h3><p>Access information about workshops, research activities, scholarly communication and professional development.</p><a class="btn btn-outline" href="#contact">Ask the Society</a></div>
+  </div>
+ </div>
+</section>
+
+<section id="call-for-papers">
+ <div class="container">
+  <div class="section-head"><div class="eyebrow">Scholarly Communication</div><h2>📢 Call for Papers</h2><p>Current and upcoming calls can be published here for conferences, edited books, journals, seminars and special academic initiatives.</p></div>
+  <div class="feature-grid">
+   <div class="feature-card"><span class="status">OPEN / UPDATE AS REQUIRED</span><h3>Research Paper Submissions</h3><p>Submit original research, review papers, conceptual studies and interdisciplinary work according to the specific call.</p><a class="btn btn-primary" href="#contact">Request CFP Details</a></div>
+   <div class="feature-card"><span class="status">EDITORIAL</span><h3>Edited Book Chapter Call</h3><p>Researchers and faculty members may express interest in contributing chapters to forthcoming scholarly volumes.</p><a class="btn btn-primary" href="#contact">Chapter Enquiry</a></div>
+   <div class="feature-card"><span class="status">ANNOUNCEMENTS</span><h3>Conference & Seminar Calls</h3><p>Information about academic events, presentation opportunities and knowledge-sharing programmes can be listed here.</p><a class="btn btn-primary" href="#events">See Events</a></div>
+  </div>
+ </div>
+</section>
+
+<section id="opportunities" class="light">
+ <div class="container">
+  <div class="section-head"><div class="eyebrow">For Students & Early-Career Scholars</div><h2>👨‍🎓 Student Opportunities</h2><p>Academic participation opportunities for students, research scholars and early-career professionals.</p></div>
+  <div class="feature-grid">
+   <div class="feature-card"><span class="tag">Students</span><h3>Student Membership</h3><p>Join the academic community, receive activity updates and participate in eligible programmes.</p><a class="btn btn-green" href="#join">Apply Now</a></div>
+   <div class="feature-card"><span class="tag">Research</span><h3>Research & Writing Support</h3><p>Information about research communication, academic writing, publishing and scholarly development initiatives.</p><a class="btn btn-green" href="#contact">Enquire</a></div>
+   <div class="feature-card"><span class="tag">Participation</span><h3>Internship & Volunteer Opportunities</h3><p>Subject to availability, students may participate in academic, event, outreach and society-support activities.</p><a class="btn btn-green" href="#contact">Register Interest</a></div>
+  </div>
+ </div>
+</section>
+
+<section id="verify">
+ <div class="container">
+  <div class="section-head"><div class="eyebrow">Public Verification</div><h2>📜 Certificate & Membership Verification</h2><p>Use the verification tools below to check an issued DLWT certificate or membership ID. Only records entered into the official verification database will return as verified.</p></div>
+  <div class="feature-grid">
+   <div class="verify-box">
+    <div class="icon">📜</div><h3>Certificate Verification</h3>
+    <p>Enter the certificate number printed on an issued DLWT certificate.</p>
+    <div class="field"><label for="certificateNo">Certificate Number</label><input id="certificateNo" placeholder="e.g. DLWT-CERT-2026-0001"></div>
+    <div class="verify-actions"><button class="btn btn-primary" type="button" onclick="verifyCertificate()">Verify Certificate</button></div>
+    <div id="certificateResult" class="verify-result"></div>
+   </div>
+   <div class="verify-box">
+    <div class="icon">🔎</div><h3>Membership ID Verification</h3>
+    <p>Enter the membership ID issued after approval.</p>
+    <div class="field"><label for="memberNo">Membership ID</label><input id="memberNo" placeholder="e.g. DLWT-2026-0001"></div>
+    <div class="verify-actions"><button class="btn btn-primary" type="button" onclick="verifyMember()">Verify Membership</button></div>
+    <div id="memberResult" class="verify-result"></div>
+   </div>
+  </div>
+  <p class="small-note" style="text-align:center;margin-top:20px">Verification records are maintained by DLWT. A successful online result confirms that the entered number matches an issued record; it does not by itself establish any other qualification or accreditation.</p>
+ </div>
+</section>
+
+<section id="certificate" class="light">
+ <div class="container">
+  <div class="section-head"><div class="eyebrow">Membership Documentation</div><h2>🧾 Membership Certificate</h2><p>Approved members may receive a digital membership certificate. Certificate numbers and membership IDs should be issued by DLWT after application review and approval.</p></div>
+  <div class="feature-grid">
+   <div class="feature-card"><span class="tag">After Approval</span><h3>Certificate Generation</h3><p>The society can issue a numbered digital certificate after membership approval. The issued number can then be checked through the public verification page.</p><a class="btn btn-primary" href="#join">Apply for Membership</a></div>
+   <div class="feature-card"><span class="tag">Already a Member?</span><h3>Request a Certificate Copy</h3><p>If you have an approved membership and need a certificate copy or correction, contact the society with your membership ID.</p><a class="btn btn-outline" href="#contact">Request Certificate</a></div>
+   <div class="feature-card"><span class="tag">Public Check</span><h3>Verify an Issued Certificate</h3><p>Use the certificate verification tool to check an issued certificate number.</p><a class="btn btn-outline" href="#verify">Verify Now</a></div>
+  </div>
+ </div>
+</section>
+
+<section id="events">
+ <div class="container">
+  <div class="section-head"><div class="eyebrow">Academic Calendar</div><h2>📅 Events</h2><p>Upcoming webinars, workshops, seminars, conferences and society activities can be listed here.</p></div>
+  <div class="feature-grid">
+   <div class="feature-card"><div class="event-date">UPCOMING • 2026</div><h3>Research & Academic Writing Webinar</h3><p>Online academic development session covering research communication and scholarly writing.</p><span class="status">Details to be announced</span></div>
+   <div class="feature-card"><div class="event-date">UPCOMING • 2026</div><h3>Young Scholars Interaction</h3><p>An academic networking and knowledge-sharing session for students and early-career researchers.</p><span class="status">Details to be announced</span></div>
+   <div class="feature-card"><div class="event-date">UPCOMING • 2026</div><h3>DLWT Academic Recognition Programme</h3><p>A programme for awards, recognition, fellowship information and member engagement.</p><span class="status">Details to be announced</span></div>
+  </div>
+ </div>
+</section>
+
+<section id="contact" class="light">
+ <div class="container">
+  <div class="section-head"><div class="eyebrow">Get in Touch</div><h2>📞 Contact DLWT</h2><p>For membership, awards, fellowships, publications, events, certificates and verification-related enquiries, contact the society.</p></div>
+  <div class="contact-grid">
+   <div class="contact-card"><h3>DLWT Society of Scholars</h3><p><strong>Email:</strong><br><a href="mailto:dlwtscholar@gmail.com">dlwtscholar@gmail.com</a></p><p><strong>Phone:</strong><br><a href="tel:+918368043184">+91 8368043184</a></p><p><strong>Address:</strong><br>B-1214, Shastri Nagar, New Delhi – 110052, India</p><p><strong>Registration No.:</strong> 2023/19/IV/1110</p><p><strong>NGO DARPAN ID:</strong> DL/2024/0410263</p></div>
+   <div class="contact-card">
+    <h3>Send an Enquiry</h3>
+    <form action="" method="POST">
+     <input type="hidden" name="subject" value="DLWT Society of Scholars – Website Enquiry">
+     <input type="hidden" name="from_name" value="DLWT Society of Scholars Website">
+     <input type="checkbox" name="botcheck" style="display:none;">
+     <div class="grid2"><div class="field"><label>Name *</label><input required name="Name" placeholder="Your name"></div><div class="field"><label>Email *</label><input required type="email" name="Email" placeholder="name@example.com"></div><div class="field full"><label>Enquiry Type *</label><select required name="Enquiry Type"><option value="">Select</option><option>Awards</option><option>Fellowship</option><option>Publication</option><option>Call for Papers</option><option>Student Opportunity</option><option>Certificate</option><option>Membership Verification</option><option>Events</option><option>General</option></select></div><div class="field full"><label>Message *</label><textarea required name="Message" placeholder="Write your enquiry"></textarea></div></div>
+     <button class="btn btn-primary" type="submit">Send Enquiry</button>
+    </form>
+   </div>
+  </div>
+ </div>
+</section>
 
 <section id="contribute" class="light">
  <div class="container">
@@ -286,11 +423,40 @@ summary{font-weight:700;color:var(--navy);cursor:pointer}
 <footer class="footer">
  <div class="footer-grid">
   <div><h3>DLWT Society of Scholars</h3><p>A professional society concept for education, research, innovation and academic networking.</p></div>
-  <div><h3>Quick Links</h3><p><a href="#about">About</a></p><p><a href="#benefits">Membership Benefits</a></p><p><a href="#membership">Membership Categories</a></p><p><a href="#join">Apply for Membership</a></p></div>
+  <div><h3>Quick Links</h3><p><a href="#about">About</a></p><p><a href="#membership">Membership</a></p><p><a href="#awards">Awards</a></p><p><a href="#fellowships">Fellowships</a></p><p><a href="#publications">Publications</a></p><p><a href="#call-for-papers">Call for Papers</a></p><p><a href="#opportunities">Student Opportunities</a></p><p><a href="#verify">Certificate / ID Verification</a></p><p><a href="#events">Events</a></p><p><a href="#contact">Contact</a></p></div>
   <div><h3>Contact</h3><p>DLWT Society of Scholars</p><p>dlwtscholar@gmail.com</p><p>+91 8368043184</p><p>Registration No.: 2023/19/IV/1110</p></div>
  </div>
- <div class="container copyright">© 2026 DLWT Society of Scholars. Demo webpage for BMS Books & Periodicals. Replace sample fees, policies and contact details before publication.</div>
+ <div class="container copyright">© 2026 DLWT Society of Scholars. All rights reserved. | Academic membership, recognition, publishing and scholarly engagement platform.</div>
 </footer>
 
+
+<script>
+/*
+  Verification database placeholder.
+  Add an issued member/certificate record here after official approval.
+  Keep demo/test records out of production.
+*/
+const DLWT_RECORDS = [
+  // Example format:
+  // {memberId:"DLWT-2026-0001", certificateNo:"DLWT-CERT-2026-0001", name:"Member Name", category:"Academic Member", status:"Active", validUntil:"31 December 2026", issuedOn:"24 September 2026"}
+];
+function showVerify(id, ok, title, html){
+ const el=document.getElementById(id); el.style.display='block'; el.className='verify-result'+(ok?'':' error'); el.innerHTML='<h3>'+title+'</h3><div>'+html+'</div>';
+}
+function verifyCertificate(){
+ const value=document.getElementById('certificateNo').value.trim().toUpperCase();
+ const r=DLWT_RECORDS.find(x=>(x.certificateNo||'').toUpperCase()===value);
+ if(!value){showVerify('certificateResult',false,'Enter a certificate number','Please enter the certificate number printed on the certificate.');return;}
+ if(!r){showVerify('certificateResult',false,'Certificate not found','No issued certificate record matches this number. Please check the number or contact DLWT at <a href="mailto:dlwtscholar@gmail.com">dlwtscholar@gmail.com</a>.');return;}
+ showVerify('certificateResult',true,'Certificate Verified','<strong>Name:</strong> '+r.name+'<br><strong>Membership ID:</strong> '+r.memberId+'<br><strong>Category:</strong> '+r.category+'<br><strong>Status:</strong> '+r.status+'<br><strong>Issued:</strong> '+r.issuedOn+'<br><strong>Valid Until:</strong> '+r.validUntil);
+}
+function verifyMember(){
+ const value=document.getElementById('memberNo').value.trim().toUpperCase();
+ const r=DLWT_RECORDS.find(x=>(x.memberId||'').toUpperCase()===value);
+ if(!value){showVerify('memberResult',false,'Enter a membership ID','Please enter the membership ID issued by DLWT.');return;}
+ if(!r){showVerify('memberResult',false,'Membership ID not found','No active membership record matches this ID. Please check the ID or contact DLWT at <a href="mailto:dlwtscholar@gmail.com">dlwtscholar@gmail.com</a>.');return;}
+ showVerify('memberResult',true,'Membership Verified','<strong>Name:</strong> '+r.name+'<br><strong>Membership ID:</strong> '+r.memberId+'<br><strong>Category:</strong> '+r.category+'<br><strong>Status:</strong> '+r.status+'<br><strong>Valid Until:</strong> '+r.validUntil);
+}
+</script>
 </body>
 </html>
